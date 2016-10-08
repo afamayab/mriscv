@@ -27,3 +27,23 @@ pure RV32I target, and install it in `/opt/riscv32i`:
     mkdir build; cd build
     ../configure --with-arch=RV32I --prefix=/opt/riscv32i
     make -j$(nproc)
+    
+    
+The microcontroller
+--------------------
+
+The microcontroller is composed by a 32bit RISC-V core, a 4KB SRAM, a 10b ADC, a 12b DAC, 
+8 GPIO, and a master and a slave SPI interfaces. All modules are connected using two different
+buses: AXI4 and APB.
+
+The directory tree is:
+
+mriscv_axi/ 						
+mriscv_axi/ADC_interface_AXI		-----> ADC interface for the AXI4 bus
+mriscv_axi/AXI_SP32B1024			-----> the AXI4 bus
+mriscv_axi/DAC_interface_AXI		-----> DAC intreface for the AXI4 bus
+mriscv_axi/axi4_interconnect		-----> Memory interface for AXI4
+mriscv_axi/impl_axi					-----> The microncontroller
+mriscv_axi/spi_axi_master			-----> master SPI for programming
+mriscv_axi/spi_axi_slave			-----> slave SPI for 
+
